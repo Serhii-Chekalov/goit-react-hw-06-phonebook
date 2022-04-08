@@ -8,7 +8,6 @@ import { Form, Label, Input, Button } from "./ContactForm.styled";
 function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-
   const stateContacts = useSelector(contacts);
   const dispatch = useDispatch();
 
@@ -41,7 +40,10 @@ function ContactForm() {
       number,
     };
 
-    stateContacts.some((contact) => contact.name === contactToAdd.name)
+    stateContacts.some(
+      (contact) =>
+        contact.name.toLowerCase() === contactToAdd.name.toLowerCase()
+    )
       ? notify(contactToAdd.name)
       : dispatch(addContact(contactToAdd));
   };
