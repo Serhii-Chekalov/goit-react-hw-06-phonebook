@@ -1,17 +1,10 @@
-import { useState } from "react";
 import ContactForm from "../ContactForm/ContactForm";
 import ContactList from "../ContactsList/ContactList";
 import Filter from "../Filter/Filter";
 import { PrimaryTitle, SecondaryTitle } from "./App.styled";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [filter, setFilter] = useState("");
-
-  const handleFilter = (e) => {
-    setFilter(e.target.value);
-  };
-
   return (
     <>
       <Toaster
@@ -27,7 +20,7 @@ function App() {
       <PrimaryTitle>Phonebook</PrimaryTitle>
       <ContactForm />
       <SecondaryTitle>Contacts</SecondaryTitle>
-      <Filter onChange={handleFilter} value={filter} />
+      <Filter />
       <ContactList />
     </>
   );
